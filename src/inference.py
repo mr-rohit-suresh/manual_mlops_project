@@ -22,8 +22,9 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 config_path = PROJECT_ROOT / "config.yaml"
 with open(config_path, "r") as f:
     cfg = yaml.safe_load(f)
-    
-MODEL_PATH = PROJECT_ROOT / cfg['model_dir']/"model_v1.pkl"
+   
+MODEL_PATH = PROJECT_ROOT / cfg['deployment']['model_dir']/"model_v1.pkl"
+print(MODEL_PATH)
 
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
