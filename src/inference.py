@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 from pathlib import Path
 import csv
+import yaml
 
 FEATURE_COLUMNS = [
     "Type",
@@ -18,7 +19,11 @@ FEATURE_COLUMNS = [
 app = FastAPI()
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-MODEL_PATH = PROJECT_ROOT / "artifacts/models/model_v1.pkl"
+config_path = PROJECT_ROOT / "config.yaml"
+with open(config_path, "r") as f:
+    cfg = yaml.safe_load(f)
+    
+MODEL_PATH = PROJECT_ROOT / cfg['model_dir']/"model_v1.pkl"
 
 with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
@@ -32,7 +37,8 @@ print("Model expects features:", model.feature_names_in_)
 # to the internet. Nobody can thefore access this url created by us in our local system
 # in their system
 
-
+print ('visit the url to post the query')
+print(""" URL = "http://127.0.0.1:8000/predict""" )
 @app.post("/predict")
 def predict(payload: dict):
     X = pd.DataFrame(
