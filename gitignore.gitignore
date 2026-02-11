@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+envi1/
+venv/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model artifacts (optional)
+*.joblib

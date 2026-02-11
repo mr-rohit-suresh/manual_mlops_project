@@ -1,0 +1,11 @@
+{
+    "training_date": "2026-02-10 17:08:09",
+    "dataset_version": "data/processed/v2_cleaned.csv",
+    "train_size": 7000,
+    "model_type": "RandomForest",
+    "max_iter": 1000,
+    "exact_match_accuracy": 0.9853333333333333,
+    "git_commit": "not_a_git_repo",
+    "config_used": "config.yaml",
+    "model_file": "model_v1.pkl"
+}
