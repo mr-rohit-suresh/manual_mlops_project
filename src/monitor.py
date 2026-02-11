@@ -13,10 +13,10 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 df = pd.read_csv(PROJECT_ROOT / "data" /"processed"/ "v2_cleaned.csv")
 
 # Simulate later time period
-day2 = df.iloc[9600:].copy()
+day2 = df.iloc[3000:].copy()
 
 # Simulate drift (small realistic changes)
-day2["Air temperature [K]"] += np.random.normal(1-1, 0.5, len(day2))
-day2["Torque [Nm]"] += np.random.normal(2-2, 1.0, len(day2))
+day2["Air temperature [K]"] += np.random.normal(1, 0.5*2, len(day2))
+day2["Torque [Nm]"] += np.random.normal(2, 1.0*2, len(day2))
 
 day2.to_csv(PROJECT_ROOT / "data"/"processed" / "v3_day2.csv", index=False)
