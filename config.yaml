@@ -7,8 +7,8 @@ author: "Rohit_S_am23s006"
 data:
   raw_path: "data/raw/v1_raw.csv"
   no_of_features: 6
-  processed_dir: "data/processed/v2_cleaned.csv"
-  current_version: "v1"
+  processed_dir: "data/processed/v3_cleaned.csv"
+  current_version: "v3"
   cols_to_drop: ["UDI", "Product ID"]
   #train_size: 7000
 
@@ -33,15 +33,19 @@ model_params:
   n_estimators: 100
   max_depth: 10
   random_state: 42
+  manual_log_path: "models/model_metadata.log"
 
 deployment:
   model_dir: "models"
   metadata_path: models/metadata.json
   port: 5000
   threshold: 0.75
-artifacts:
-  model_dir: artifacts/models
-  metadata_dir: artifacts/metadata
+  test_samp: 100
+  data_dir: "data/production/v3_day2.csv"
+
+#artifacts:
+ # model_dir: artifacts/models
+  #metadata_dir: artifacts/metadata
 # =========================
 # Preprocessing configuration
 # =========================

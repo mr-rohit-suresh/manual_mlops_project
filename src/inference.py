@@ -39,7 +39,7 @@ print("Model expects features:", model.feature_names_in_)
 # in their system
 
 print ('visit the url to post the query')
-print(""" URL = "http://127.0.0.1:8000/predict""" )
+print(""" URL = "http://127.0.0.1:8000/docs""" )
 @app.post("/predict")
 def predict(payload: dict):
     X = pd.DataFrame(
