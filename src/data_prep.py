@@ -39,7 +39,29 @@ df = df.drop(columns=cols_to_drop)
 
 
 
-processed_path = PROJECT_ROOT / "data" / "processed" / "v2_cleaned.csv"
+
+
+processed_dir = PROJECT_ROOT / "data" / "processed"
+if not processed_dir.exists():
+    processed_dir.mkdir(exist_ok=True)
+
+# Detect next version automatica
+existing_versions = sorted(
+    [int(f.stem.split("_")[0][1:]) for f in processed_dir.glob("v*_cleaned.csv")]
+)
+
+next_version = existing_versions[-1] + 1 if existing_versions else 1
+
+new_filename = f"v{next_version}_cleaned.csv"
+processed_path = processed_dir / new_filename
+
 df.to_csv(processed_path, index=False)
 
-print("Cleaned data saved to:", processed_path)
+print(f"Saved new processed dataset: {new_filename}")
+
+
+
+
+
+
+
