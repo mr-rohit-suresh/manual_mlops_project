@@ -21,6 +21,8 @@ This project demonstrates a **manual MLOps pipeline**, covering data versioning,
 
 ###  Clone the Repository
 
+For error free reproduction of the repo, create a virtual environment. Do not forget to activate it !
+
 ```bash
 git clone https://github.com/mr-rohit-suresh/manual_mlops_project.git
 cd manual_mlops_project
@@ -76,7 +78,7 @@ python tests/smoke_tests.py
 
 These tests confirm API connectivity and correct response format. They do not measure model accuracy.
 
-###Phase D: Monitoring & Drift Simulation
+### Phase D: Monitoring & Drift Simulation
 Simulate Data Drift
 
 ```bash
