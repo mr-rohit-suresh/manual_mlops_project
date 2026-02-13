@@ -38,8 +38,22 @@ from sklearn.metrics import accuracy_score
 
 
 
+
+processed_dir = PROJECT_ROOT / cfg['data']['processed_dir']
+
+
+# Detect next version automatica
+existing_versions = sorted(
+    [int(f.stem.split("_")[0][1:]) for f in processed_dir.glob("v*_cleaned.csv")]
+)
+
+next_version = existing_versions[-1]  if existing_versions else 1
+new_filename = processed_dir / f"v{next_version}_cleaned.csv"
+
+
+
 # Load data
-data = pd.read_csv(csv_path)
+data = pd.read_csv(PROJECT_ROOT / new_filename)
 nf=cfg['data']['no_of_features']
 X = data.iloc[:, :nf]
 
@@ -112,7 +126,7 @@ existing_models = sorted(
     [int(f.stem.split("_v")[-1]) for f in models_dir.glob("model_v*.pkl")]
 )
 
-
+#
 
 
 
