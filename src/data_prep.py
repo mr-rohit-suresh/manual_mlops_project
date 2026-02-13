@@ -41,7 +41,7 @@ df = df.drop(columns=cols_to_drop)
 
 
 
-processed_dir = PROJECT_ROOT / "data" / "processed"
+processed_dir = PROJECT_ROOT / cfg['data']['processed_dir']
 if not processed_dir.exists():
     processed_dir.mkdir(exist_ok=True)
 
