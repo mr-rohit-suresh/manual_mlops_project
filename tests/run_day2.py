@@ -24,7 +24,8 @@ total_labels = 0
 
 URL = "http://127.0.0.1:8000/predict"
 path=PROJECT_ROOT / cfg['deployment']['data_dir']
-df = pd.read_csv(path)
+new_path= path/ f"production_sample_test.csv"
+df = pd.read_csv(new_path)
 #df = pd.read_csv("data/processed/v3_day2.csv")
 
 errors = 0
