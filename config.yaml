@@ -7,7 +7,7 @@ author: "Rohit_S_am23s006"
 data:
   raw_path: "data/raw/v1_raw.csv"
   no_of_features: 6
-  processed_dir: "data/processed/v3_cleaned.csv"
+  processed_dir: "data/processed"
   current_version: "v3"
   cols_to_drop: ["UDI", "Product ID"]
   #train_size: 7000
@@ -41,7 +41,7 @@ deployment:
   port: 5000
   threshold: 0.75
   test_samp: 100
-  data_dir: "data/production/v3_day2.csv"
+  data_dir: "data/production"
 
 #artifacts:
  # model_dir: artifacts/models
